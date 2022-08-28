@@ -1,19 +1,31 @@
+:root {
+  /* CSS HEX */
+  /* https://coolors.co/d0f1bf-5296a5-e06d06-003554-ada0a6 */
+  --tea-green: #d0f1bfff;
+  --blue-munsell: #5296a5ff;
+  --chocolate-web: #e06d06ff;
+  --prussian-blue: #003554ff;
+  --black-shadows: #ada0a6ff;
+}
 html, body {
   height: 100%;
   width: 100%;
   padding: 0.5em;
-  font-family: "Arial Narrow", sans-serif;
+  font-family: sans-serif;
+  font-size: 12pt;
 }
 td, th {padding:3px;}
-th {background-color: #355764; color: #ffffff;}
-td {font-size:11pt;text-align:right;}
+th {background-color: var(--prussian-blue); color: #ffffff;}
+th:nth-child(1) {text-align:right;}
+td {font-size:100%;text-align:right;}
 td:nth-child(1), td:nth-child(2) {font-weight:bold}
 .colnr, .rownr, th:nth-child(12), td:nth-child(12) {color:#bbb;background-color: #eee;}
-.rc-v {background-color: #81cacf;}
+.rc-v {background-color: var(--blue-munsell); color: var(--tea-green);}
 .rc-b {background-color: #ffffff; color: #ffffff}
 .rc-d {background-color: #ffffff;}
 .calc {font-style: italic}
-.warn {color: red;}
+.warn {color: crimson;background-color: var(--black-shadows);}
+tr.rc-v > td.exorb {color: blue;background-color: #aaf;}
 .txt {margin-bottom: 1em;width:65%}
 #r1c4 {padding-left:6px;padding-right:6px;}
 .rc-v > td.numeric::after {
