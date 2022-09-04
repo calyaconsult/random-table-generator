@@ -1,0 +1,31 @@
+28a29,43
+> const getLiveData = (arr) => {
+>   return arr.map((x) => x.split(",").map((x) => {return (isNaN(x))? x : Number(x);}));
+> };
+> 
+> const liveDataRaw = [
+>   "desktop,767,1107,7498,6.773261066,24.76044437,143.068654",
+>   "mobile,408,546,2364,4.32967033,23.81243124,79.31684982",
+>   "tablet,10,14,68,4.857142857,38.12962963,146.9285714",
+>   "desktop,1526,1821,9598,5.270730368,28.44130127,121.5442065",
+>   "mobile,267,417,2169,5.201438849,22.97317352,96.53477218",
+>   "tablet,27,38,238,6.263157895,31.935,168.2894737"
+> ]
+> 
+> const liveData = getLiveData(liveDataRaw);
+> 
+35a51,56
+> 
+>   liveSet = colNames.reduce((ac, element, index) => {
+>               return {...ac, [element]: liveData[rs][index]};
+>             }, {});
+>   //console.log("L:",liveSet)
+> 
+37c58,62
+<   let row = syntheticData[randomSet];
+---
+>   //console.log("R:",syntheticData[randomSet]);
+> 
+>   let row = liveSet;
+>   //let row = syntheticData[randomSet];
+> 

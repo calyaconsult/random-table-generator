@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Random Traffic Table Generator</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <style>
+   code {color:brown;font-weight:bold;}
+   pre  {color:#555;font-weight:normal;margin-left:.75em;}
+   tr > td:nth-child(2) {font-weight:normal;}
+   tbody > tr:nth-child(4),tbody > tr:nth-child(8),tbody > tr:nth-child(12) {font-weight:bold;background-color:#d0f1bf;}
+   tbody > tr:nth-child(9),tbody > tr:nth-child(10),tbody > tr:nth-child(11) {font-weight:normal;background-color:#84aff0;}
+   .deltaSymbol {font-size:120%;}
+  </style>
+</head>
+
+<body>
+  <h1>Random Traffic Table Generator</h1>
+  <p class="txt">Die Datengrundlage für diese Tabelle besteht aus einem von clearbox.ai generierten synthetischen Datensatz, der die statistischen Merkmale eines realen Datensatzes nachbildet, ohne dass Rückschlüsse auf die Einzelheiten der Vorlage möglich sind.</p>
+  <div id="datadiv"><p>Beispieldaten (Format: CSV, nur die ersten 10 von 500 Zeilen werden angezeigt)</p><pre>
+Date,Users,Sessions,Pageviews,Pages / Session,Avg. Time on Page,Avg. Session Duration
+*,62,78,633,8.634899903314016,21.534770174881523,150.95592643398822
+*,37,51,300,5.776516456900156,9.71580399453616,52.05622829745051
+*,40,57,477,8.116465879911276,33.1769524609236,250.5794839362007
+*,35,41,139,3.4063232174331723,60.70250235156024,136.50917509885858
+*,61,72,607,8.620618184098097,37.998596530566196,272.8257816142273
+*,47,62,629,11.401450779446199,23.46976993202075,204.86812698453315
+*,29,33,192,6.2360126193153125,18.192840443369224,100.02017102274341
+*,46,51,196,4.538997129155046,31.213670347566797,110.2381180493619
+*,64,84,987,10.281308454189055,40.287427303103605,324.0116768222531
+  </pre>
+  <p class="txt">Workflow: Umwandeln der CSV-Daten in JSON mithilfe von <code>jq</code>, Auswahl und Berechnung der Datensätze bzw. Deltas mittels <code>gen-synthetic-table-0.2.js</code>, schliesslich Präsentation als HTML unter Zuhilfenahme des Scripts <code>script-2.js</code>.</p>
+  </div>
+  <div id="infotext" class="txt">Diese Tabelle dient zur lesbaren Präsentation der generierten Daten.<br>&nbsp;
+  </div>
+  <table id="maintable">
+    <thead></thead>
+    <tbody></tbody>
+  </table>
+  <!--h4 class="showhide">Table Contents as JSON</h4-->
+  <div class="showhide"><pre id="jsonout"></pre></div>
+  <script src="script-2.js"></script>
+</body>
+</html>
