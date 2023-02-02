@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Random Traffic Table Generator</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+  <style>
+   code.nh {color:brown;font-weight:bold;}
+   pre  {color:#555;font-weight:normal;margin-left:3em;}
+   tr > td:nth-child(2) {font-weight:normal;}
+   tbody > tr:nth-child(4),tbody > tr:nth-child(8),tbody > tr:nth-child(12) {font-weight:bold;background-color:#d0f1bf;}
+   tbody > tr:nth-child(9),tbody > tr:nth-child(10),tbody > tr:nth-child(11) {font-weight:normal;background-color:#84aff0;}
+   .deltaSymbol {font-size:120%;}
+   .an {font-weight: bold; font-size: 120%;}
+   .qanda {width: 56em;}
+   .blue {color: blue; font-weight: bold !important;}
+  </style>
+</head>
+<body>
+  <div class="nav">
+   <ul>
+     <li>Related: <a href="table-2.html">table-2.html</a></li>
+     <!--li><a href=""></a></li-->
+   </ul>
+  </div>
+<div class="qanda">
+<h2><span class="qu">Q:</span> Can you explain this code snippet?</h2>
+<pre><code class="language-javascript">
+const getDelta = (x,y) => {
+  if (isNaN(x) || isNaN(y)) return null;
+  return ((x/y-1)*100).toFixed(2);
+};
+
+const calcDeltas = (k,x,y) => {
+  let deltas =  x.map((e, i) => { return Number(getDelta(x[i],y[i]));});
+  const obj =  k.reduce((ac, element, index) => {
+     return {...ac, [element]: deltas[index]};
+  }, {});
+  return obj;
+};
+</code></pre>
+<p><span class="an">A:</span> The code defines two functions:</p>
+<p><code class="nh">getDelta</code> - takes two parameters <code class="nh">x</code> and <code class="nh">y</code> and returns the percentage difference between them as a fixed decimal with 2 decimal places. If either <code class="nh">x</code> or <code class="nh">y</code> is <code class="nh">NaN</code>, it returns null.</p>
+<p><code class="nh">calcDeltas</code> - takes three parameters <code class="nh">k</code>, <code class="nh">x</code> and <code class="nh">y</code>. It first maps over <code class="nh">x</code> and calculates the percentage difference between each element of <code class="nh">x</code> and <code class="nh">y</code> using the <code class="nh">getDelta</code> function. Then, it uses <code class="nh">reduce</code> on <code class="nh">k</code> to create an object with keys equal to elements in <code class="nh">k</code> and values equal to the corresponding deltas. The resulting object is returned.</p>
+</div>
+<div class="qanda">
+<h2><span class="qu">Q:</span> How does this function work?</h2>
+<pre><code class="language-javascript">
+(ac, element, index) => {
+   return {...ac, [element]: deltas[index]};
+};
+</code></pre>
+<p><span class="an">A:</span> The function is an accumulator callback passed to the <code class="nh">reduce</code> method. The <code class="nh">reduce</code> method takes an array and reduces it to a single value by applying a callback function to each element. The accumulator callback is used to build the final value step by step.</p>
+<p>The callback function takes three parameters:</p>
+<ul>
+   <li><code class="nh">ac</code> (accumulator) - The accumulator accumulates the final result. In this case, it starts as an empty object <code class="nh">{}</code> and adds key-value pairs to it with each iteration.</li>
+   <li><code class="nh">element</code> - The current element being processed from the <code class="nh">k</code> array.</li>
+   <li><code class="nh">index</code> - The index of the current element being processed from the <code class="nh">k</code> array.</li>
+   <li>The function returns a new object that is created by spreading the properties of the current accumulator <code class="nh">ac</code> and adding a new property with the key equal to <code class="nh">element</code> and the value equal to <code class="nh">deltas[index]</code>. This function is called for each element in <code class="nh">k</code> and the final returned value is the object that contains the key-value pairs of element and <code class="nh">deltas[index]</code> for each iteration.</li>
+</ul>
+</div>
+<div class="qanda">
+<pre><code class="language-javascript">
+// Start:
+{...ac, [element]: deltas[index]}
+=> {...{}, ['A']: 100}
+=> {A: 100}
+// Next:
+{...ac, [element]: deltas[index]}
+=> {...{A: 100}, ['B']: 100}
+=> {A: 100, B: 100}
+// Final
+{...ac, [element]: deltas[index]}
+=> {...{A: 100, B: 100}, ['C']: 100}
+=> {A: 100, B: 100, C: 100}
+// Result:
+{A: 100, B: 100, C: 100}
+</code></pre>
+</div>
+<div class="qanda">
+<p><strong>N.B.</strong> When the following code is executed:</p>
+<pre><code class="language-javascript">
+  let c=0;
+  let B = ['x','y','z'];
+  for (let i=0;i&lt;B.length;i++) {
+    console.log({A: 1, [B[i]] : c+i});
+  }
+</code></pre>
+<p>It will output the following objects:</p>
+<pre><code class="language-javascript">
+  {A: 1, x: 0}
+  {A: 1, y: 1}
+  {A: 1, z: 2}
+</code></pre>
+<p>In each iteration of the loop, a new object is created with two properties: A and a property whose key is the value of the i-th element of the B array. The value of the latter property is c + i, where c is 0 and i is the index of the current iteration.</p>
+</div>
+<div class="qanda">
+  <h2>The Problem</h2>
+  <p>We have a table withg the following columns and rows. How to fill the last row with the appropriate values?</p>
+  <table id="mytable">
+    <thead><tr><th>&nbsp;</th><th>Users</th><th>Sessions</th><th>Pageviews</th></tr></thead>
+    <tbody>
+      <tr><td class="tx">Current Year</td><td class="numeric">110</td><td class="numeric">210</td><td class="numeric">310</td></tr>
+      <tr><td class="tx">Previuos Year</td><td class="numeric">100</td><td class="numeric">200</td><td class="numeric">300</td></tr>
+      <tr id="deltas"><td class="tx">Delta (%)</td><td class="numeric">?</td><td class="numeric">?</td><td class="numeric">?</td></tr>
+    </tbody>
+  <table>
+  <button id="btn1">Calculate Deltas</button>
+  <p>Look at the <code class="nh">&lt;script&gt;</code> in the page source and the output on the console</p>
+</div>
+<p>&nbsp;</p>
+<script>hljs.highlightAll();</script>
+<script>
+ // Snippet One
+ console.log("One");
+  let c=0;
+  let B = ['x','y','z'];
+  for (let i=0;i<B.length;i++) {
+    console.log({A: 1, [B[i]] : c+i});
+  };
+
+// Snippet Two
+const getDelta = (x,y) => {
+  if (isNaN(x) || isNaN(y)) return null;
+  return ((x/y-1)*100).toFixed(2);
+};
+console.log("Two");
+const calcDeltas = (k,x,y) => {
+  let deltas =  x.map((e, i) => { return Number(getDelta(x[i],y[i]));});
+  const obj =  k.reduce((ac, element, index) => {
+     return {...ac, [element]: deltas[index]};
+  }, {});
+  return obj;
+};
+const myMatrix = [
+  [null,'Users','Sessions','Pageviews'],
+  ['Current Year',110,210,310],
+  ['Previous Year',100,200,300]
+];
+console.log(calcDeltas( myMatrix[0].slice(1),myMatrix[1].slice(1),myMatrix[2].slice(1)));
+myMatrix.push(['Deltas (%)',...Object.values(calcDeltas( myMatrix[0].slice(1),myMatrix[1].slice(1),myMatrix[2].slice(1)))]);
+console.log("Spreadsheet Matrix");
+console.log(myMatrix);
+//console.log(JSON.stringify(myMatrix,null,2));
+$("document").ready(function() {
+  $("#btn1").click(function() {
+    for (let i=0;i<myMatrix[3].length;i++) {
+      $(`#deltas > td:nth-child(${i+1})`).html(myMatrix[3][i]);
+    };
+    $("#deltas > td.numeric").addClass("blue");
+  });
+});
+</script>

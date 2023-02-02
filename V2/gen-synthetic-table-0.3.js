@@ -1,5 +1,5 @@
 const fs = require('fs');
-const syntheticData = JSON.parse(fs.readFileSync('../synthetic-data/data/test.json'));
+const syntheticData = JSON.parse(fs.readFileSync('/home/mike/public_html/mtg/synthetic-data/data/test.json'));
 const colNames = Object.keys(syntheticData[0]);
 
 const year = 2022;
@@ -14,10 +14,9 @@ const groupMembers = "desktop,mobile,tablet".split(",");
 const numberOfGroupMembers = groupMembers.length;
 const numberOfGroups = 2;
 
-const createAccu = (template) => {
-  accu = template;
-  for (let i=0;i<Object.keys(template).length;i++) {
-    accu[Object.keys(template)[i]] = 0;
+const createAccu = (accu) => {
+  for (let i=0;i<Object.keys(accu).length;i++) {
+    accu[Object.keys(accu)[i]] = 0;
   };
   return accu;
 };
@@ -49,7 +48,7 @@ for (let rs=0;rs<numberOfGroupMembers*numberOfGroups;rs++) {
      accumulator = createAccu(syntheticData[0]);
   };
 
-  liveSet = colNames.reduce((ac, element, index) => {
+  const liveSet = colNames.reduce((ac, element, index) => {
               return {...ac, [element]: liveData[rs][index]};
             }, {});
   //console.log("L:",liveSet)
@@ -57,8 +56,8 @@ for (let rs=0;rs<numberOfGroupMembers*numberOfGroups;rs++) {
   randomSet = Math.floor(Math.random()*syntheticData.length);
   //console.log("R:",syntheticData[randomSet]);
 
-  let row = liveSet;
-  //let row = syntheticData[randomSet];
+  //let row = liveSet;
+  let row = syntheticData[randomSet];
 
   /*** Die Ratio "Pages / Session" mus berechnet werden, da die Datenquelle die Abhängikeit dieser Zahl nicht kennt und stattdessen eine Zufallszahl liefert  ***/
   row["Pages / Session"] = calcRatio(row["Pageviews"],row["Sessions"],row["Pages / Session"]);
@@ -118,6 +117,6 @@ let b = Object.values(synthVals["previousYear"]["Group Total"]);
 //console.log(calcDeltas(n,a,b),"\n");
 synthVals["Deltas"]["Grand Total"] = calcDeltas(n,a,b);
 
-console.log(JSON.stringify(synthVals,null,2));
-//console.log(`*** Synth Vals: ${JSON.stringify(synthVals,null,2)}`);
-//console.log("\n");
+//console.log(JSON.stringify(synthVals,null,2));
+console.log(`*** Synth Vals: ${JSON.stringify(synthVals,null,2)}`);
+console.log("\n");

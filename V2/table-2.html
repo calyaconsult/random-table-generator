@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
@@ -18,8 +17,15 @@
 </head>
 
 <body>
+  <div class="nav">
+   <ul>
+     <li>Related: <a href="gen-synthetic-table-code-snippet.html">gen-synthetic-table-code-snippet.html</a></li>
+     <!--li><a href=""></a></li-->
+   </ul>
+  </div>
   <h1>Random Traffic Table Generator</h1>
   <p class="txt">Die Datengrundlage für diese Tabelle besteht aus einem von clearbox.ai generierten synthetischen Datensatz, der die statistischen Merkmale eines realen Datensatzes nachbildet, ohne dass Rückschlüsse auf die Einzelheiten der Vorlage möglich sind.</p>
+  <p class="txt">File: <code>/home/mike/public_html/mtg/synthetic-data/data/GA Monthly_synthetic.csv</code></p>
   <div id="datadiv"><p>Beispieldaten (Format: CSV, nur die ersten 10 von 500 Zeilen werden angezeigt)</p><pre>
 Date,Users,Sessions,Pageviews,Pages / Session,Avg. Time on Page,Avg. Session Duration
 *,62,78,633,8.634899903314016,21.534770174881523,150.95592643398822
@@ -32,16 +38,18 @@ Date,Users,Sessions,Pageviews,Pages / Session,Avg. Time on Page,Avg. Session Dur
 *,46,51,196,4.538997129155046,31.213670347566797,110.2381180493619
 *,64,84,987,10.281308454189055,40.287427303103605,324.0116768222531
   </pre>
-  <p class="txt">Workflow: Umwandeln der CSV-Daten in JSON mithilfe von <code>jq</code>, Auswahl und Berechnung der Datensätze bzw. Deltas mittels <code>gen-synthetic-table-0.2.js</code>, schliesslich Präsentation als HTML unter Zuhilfenahme des Scripts <code>script-2.js</code>.</p>
+  <p class="txt">Workflow: Umwandeln der CSV-Daten in JSON mithilfe von <code>jq</code>, Auswahl und Berechnung der Datensätze bzw. Deltas mittels <code>gen-synthetic-table-1.0.js > output.json</code>, schliesslich Präsentation als HTML unter Zuhilfenahme des Scripts <code>script-2.js</code>.</p>
   </div>
-  <div id="infotext" class="txt">Diese Tabelle dient zur lesbaren Präsentation der generierten Daten.<br>&nbsp;
-  </div>
+  <div class="txt">Online-Version mit erklärenden Kommentaren: <a href="https://replit.com/@MichaelGlunz/Random-Table-Generator-Explained#index.js">https://replit.com/@MichaelGlunz/Random-Table-Generator-Explained#index.js</a></div>
+  <div id="infotext" class="txt">Diese Tabelle dient zur lesbaren Präsentation der generierten Daten.<br>&nbsp;</div>
+  <div id="todotxt" class="txt"><strong>Done:</strong> Bei den Spalten mit AVG-Werten die Zahl durch die Anzahl Group Members (hier: 3) teilen</div>
   <table id="maintable">
     <thead></thead>
     <tbody></tbody>
   </table>
   <!--h4 class="showhide">Table Contents as JSON</h4-->
   <div class="showhide"><pre id="jsonout"></pre></div>
+  <p>&nbsp;</p>
   <script src="script-2.js"></script>
 </body>
 </html>

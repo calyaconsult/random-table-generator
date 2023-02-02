@@ -2,47 +2,7 @@
   "currentYear": {
     "Data": {
       "desktop": {
-        "Date": "7 2022",
-        "Users": 73,
-        "Sessions": 94,
-        "Pageviews": 692,
-        "Pages / Session": 7.361702127659575,
-        "Avg. Time on Page": 26.167030125044374,
-        "Avg. Session Duration": 176.50077240258187
-      },
-      "mobile": {
-        "Date": "7 2022",
-        "Users": 41,
-        "Sessions": 53,
-        "Pageviews": 692,
-        "Pages / Session": 13.056603773584905,
-        "Avg. Time on Page": 33.21211593147763,
-        "Avg. Session Duration": 407.48257984644584
-      },
-      "tablet": {
-        "Date": "7 2022",
-        "Users": 58,
-        "Sessions": 65,
-        "Pageviews": 395,
-        "Pages / Session": 6.076923076923077,
-        "Avg. Time on Page": 18.950441431150708,
-        "Avg. Session Duration": 80.59069407193967
-      }
-    },
-    "Group Total": {
-      "Date": "7 2022",
-      "Users": 172,
-      "Sessions": 212,
-      "Pageviews": 1779,
-      "Pages / Session": 8.391509433962264,
-      "Avg. Time on Page": 78.32958748767271,
-      "Avg. Session Duration": 664.5740463209673
-    }
-  },
-  "previousYear": {
-    "Data": {
-      "desktop": {
-        "Date": "7 2021",
+        "Date": "12 2022",
         "Users": 36,
         "Sessions": 48,
         "Pageviews": 553,
@@ -51,70 +11,110 @@
         "Avg. Session Duration": 226.15338673633065
       },
       "mobile": {
-        "Date": "7 2021",
-        "Users": 53,
-        "Sessions": 59,
-        "Pageviews": 362,
-        "Pages / Session": 6.135593220338983,
-        "Avg. Time on Page": 22.567419248448576,
-        "Avg. Session Duration": 123.84261114288184
+        "Date": "12 2022",
+        "Users": 37,
+        "Sessions": 44,
+        "Pageviews": 329,
+        "Pages / Session": 7.4772727272727275,
+        "Avg. Time on Page": 17.6386689391278,
+        "Avg. Session Duration": 90.56488388004674
       },
       "tablet": {
-        "Date": "7 2021",
-        "Users": 39,
-        "Sessions": 39,
-        "Pageviews": 212,
-        "Pages / Session": 5.435897435897436,
-        "Avg. Time on Page": 20.985329336160348,
-        "Avg. Session Duration": 103.81974191552371
+        "Date": "12 2022",
+        "Users": 46,
+        "Sessions": 43,
+        "Pageviews": 600,
+        "Pages / Session": 13.953488372093023,
+        "Avg. Time on Page": 27.231460189137792,
+        "Avg. Session Duration": 340.5600751798048
       }
     },
     "Group Total": {
-      "Date": "7 2021",
-      "Users": 128,
-      "Sessions": 146,
-      "Pageviews": 1127,
-      "Pages / Session": 7.719178082191781,
-      "Avg. Time on Page": 65.4216554648674,
-      "Avg. Session Duration": 453.8157397947362
+      "Date": "12 2022",
+      "Users": 119,
+      "Sessions": 135,
+      "Pageviews": 1482,
+      "Pages / Session": 10.977777777777778,
+      "Avg. Time on Page": 22.246345336174688,
+      "Avg. Session Duration": 219.09278193206072
+    }
+  },
+  "previousYear": {
+    "Data": {
+      "desktop": {
+        "Date": "12 2021",
+        "Users": 55,
+        "Sessions": 72,
+        "Pageviews": 345,
+        "Pages / Session": 4.791666666666667,
+        "Avg. Time on Page": 20.73409153763043,
+        "Avg. Session Duration": 66.98824108284433
+      },
+      "mobile": {
+        "Date": "12 2021",
+        "Users": 57,
+        "Sessions": 61,
+        "Pageviews": 368,
+        "Pages / Session": 6.032786885245901,
+        "Avg. Time on Page": 37.65498244627754,
+        "Avg. Session Duration": 197.51770010900708
+      },
+      "tablet": {
+        "Date": "12 2021",
+        "Users": 69,
+        "Sessions": 74,
+        "Pageviews": 750,
+        "Pages / Session": 10.135135135135135,
+        "Avg. Time on Page": 30.16269128675769,
+        "Avg. Session Duration": 215.6785771986377
+      }
+    },
+    "Group Total": {
+      "Date": "12 2021",
+      "Users": 181,
+      "Sessions": 207,
+      "Pageviews": 1463,
+      "Pages / Session": 7.067632850241546,
+      "Avg. Time on Page": 29.51725509022189,
+      "Avg. Session Duration": 160.06150613016305
     }
   },
   "Deltas": {
     "desktop": {
       "Date": 0,
-      "Users": 102.78,
-      "Sessions": 95.83,
-      "Pageviews": 25.14,
-      "Pages / Session": -36.1,
-      "Avg. Time on Page": 19.65,
-      "Avg. Session Duration": -21.96
+      "Users": -34.55,
+      "Sessions": -33.33,
+      "Pageviews": 60.29,
+      "Pages / Session": 140.43,
+      "Avg. Time on Page": 5.47,
+      "Avg. Session Duration": 237.6
     },
     "mobile": {
       "Date": 0,
-      "Users": -22.64,
-      "Sessions": -10.17,
-      "Pageviews": 91.16,
-      "Pages / Session": 112.8,
-      "Avg. Time on Page": 47.17,
-      "Avg. Session Duration": 229.03
+      "Users": -35.09,
+      "Sessions": -27.87,
+      "Pageviews": -10.6,
+      "Pages / Session": 23.94,
+      "Avg. Time on Page": -53.16,
+      "Avg. Session Duration": -54.15
     },
     "tablet": {
       "Date": 0,
-      "Users": 48.72,
-      "Sessions": 66.67,
-      "Pageviews": 86.32,
-      "Pages / Session": 11.79,
-      "Avg. Time on Page": -9.7,
-      "Avg. Session Duration": -22.37
+      "Users": -33.33,
+      "Sessions": -41.89,
+      "Pageviews": -20,
+      "Pages / Session": 37.67,
+      "Avg. Time on Page": -9.72,
+      "Avg. Session Duration": 57.9
     },
     "Grand Total": {
       "Date": 0,
-      "Users": 34.38,
-      "Sessions": 45.21,
-      "Pageviews": 57.85,
-      "Pages / Session": 8.71,
-      "Avg. Time on Page": 19.73,
-      "Avg. Session Duration": 46.44
+      "Users": -34.25,
+      "Sessions": -34.78,
+      "Pageviews": 1.3,
+      "Pages / Session": 55.32,
+      "Avg. Time on Page": -24.63,
+      "Avg. Session Duration": 36.88
     }
   }
 }
