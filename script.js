@@ -33,7 +33,7 @@ const counter = (init) => {
   }
 };
 
-const colCounter = counter(-1);
+let colCounter = counter(-1); // Can't be constant if the assignment is repeated in line 75!
 
 const mkRow = (arr, type) => {
   let rn = colCounter();
@@ -53,7 +53,7 @@ const mkRow = (arr, type) => {
 // var month = "Aug,Sep,Oct,Nov,Dec".split(",").indexOf(monthName); // Removed
 
 $("document").ready(function() {
-  $.getJSON("generated-monthly-data.json", function(allData) {
+  $.getJSON("months-generated-values.json", function(allData) { // Align file name with existing file
     const monthSelect = $("#month-select");
     monthSelect.empty(); // Clear existing options
 
